@@ -22,6 +22,7 @@ namespace program1
                         " |      3.查询订单            |\n" +
                         " |      4.显示订单            |\n" +
                         " ========= 数字0退出 ==========\n");
+
                     var select = Convert.ToInt32(Console.ReadLine());
                     if (select == 1)
                     {
@@ -34,7 +35,7 @@ namespace program1
                         order1.Client = Console.ReadLine();
                         //添加明细
                         var index1 = 0;
-                        Console.WriteLine("\n ------------- \n" +
+                        tag: Console.WriteLine("\n ------------- \n" +
                                           "  1.添加明细 \n" +
                                           "  2.完成订单 \n" +
                                           " -------------\n");
@@ -53,13 +54,16 @@ namespace program1
                             orderDetails.DetailsNumber = index1;
                             order1.AddDetails(orderDetails);
                             Console.WriteLine("----订单完成----\n");
+                            goto tag;
                         }
                         else if (select1 == 2)
                         {
                             Console.WriteLine("\n************完成***********\n");
-                            break;
                         }
-
+                        else
+                        {
+                            goto tag;
+                        }
                         //通过OrderService加入OrderList
                         os.AddOrder(order1);
                     }
@@ -75,19 +79,19 @@ namespace program1
                         var sd = Convert.ToInt32(Console.ReadLine());
                         if (sd == 1)
                         {
-                            Console.WriteLine("\n2.按客户名删除订单");
-                            Console.WriteLine("需要删除掉订单的客户：");
+                            Console.WriteLine("\n----1.按客户名删除订单----");
+                            Console.Write("需要删除掉订单的客户：");
                             var client = Console.ReadLine();
                             os.DeleteByCliend(client);
-                            Console.WriteLine("************完成***********\n");
+                            Console.WriteLine("\n************完成***********\n");
                         }
                         else if (sd == 2)
                         {
-                            Console.WriteLine("\n2.按订单号删除订单");
-                            Console.WriteLine("需要删除掉订单的订单号：");
+                            Console.WriteLine("\n----2.按订单号删除订单----");
+                            Console.Write("需要删除掉订单的订单号：");
                             var client = Convert.ToInt32(Console.ReadLine());
                             os.DeleteById(client);
-                            Console.WriteLine("************完成***********\n");
+                            Console.WriteLine("\n************完成***********\n");
                         }
                     }
                     else if (select == 3)
@@ -104,27 +108,27 @@ namespace program1
                         var sd = Convert.ToInt32(Console.ReadLine());
                         if (sd == 1)
                         {
-                            Console.WriteLine("\n2.按客户名查询订单");
-                            Console.WriteLine("需要查询订单的客户：");
+                            Console.WriteLine("\n----1.按客户名查询订单----");
+                            Console.Write("需要查询订单的客户：");
                             var client = Console.ReadLine();
                             os.FindByName(client);
-                            Console.WriteLine("************完成***********\n");
+                            Console.WriteLine("\n************完成***********\n");
                         }
                         else if (sd == 2)
                         {
-                            Console.WriteLine("\n2.按订单号查询订单");
-                            Console.WriteLine("需要查询订单的订单号：");
+                            Console.WriteLine("\n----2.按订单号查询订单----");
+                            Console.Write("需要查询订单的订单号：");
                             var client = Convert.ToInt32(Console.ReadLine());
                             os.FindByID(client);
                             Console.WriteLine("************完成***********\n");
                         }
                         else if (sd == 3)
                         {
-                            Console.WriteLine("\n3.查询小于指定金额的订单");
-                            Console.WriteLine("输入您的金额：");
+                            Console.WriteLine("\n----3.查询小于指定金额的订单----");
+                            Console.Write("输入您的金额：");
                             var client = Convert.ToDouble(Console.ReadLine());
                             os.FindByTotal(client);
-                            Console.WriteLine("************完成***********\n");
+                            Console.WriteLine("\n************完成***********\n");
                         }
                     }
                     else if (select == 4)

@@ -42,7 +42,12 @@ namespace program1
             var A = MyOreder.Where(a => a.good.Id == name).Select(a => a);
             foreach (var B in A)
                 Console.WriteLine(
-                    $"++++++++ {B.DetailsNumber}.  商品编号：{B.good.Id}  名称：{B.good.Name}  单价：{B.good.Price}  数量：{B.CommodityNumber}  价格：{B.TotalPrice}++++++++");
+                    $" {B.DetailsNumber}.  \n" +
+                    $"商品编号：{B.good.Id}  \n" +
+                    $"名称：{B.good.Name}  \n" +
+                    $"单价：{B.good.Price}  \n" +
+                    $"数量：{B.CommodityNumber}  \n" +
+                    $"价格：{B.TotalPrice}");
         }
     }
 }

@@ -27,7 +27,7 @@ namespace program1
             //判断是否有相关订单
             if (A.Count() == 0)
             {
-                Console.WriteLine("========== 没有符合条件的订单 ==========");
+                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
                 return;
             }
 
@@ -47,7 +47,7 @@ namespace program1
             //判断是否有相关订单
             if (A.Count() == 0)
             {
-                Console.WriteLine("========== 没有符合条件的订单 ==========");
+                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
                 return;
             }
 
@@ -67,7 +67,7 @@ namespace program1
             var A = orders.Where(a => a.Client == client).Select(a => a);
             if (A.Count() == 0)
             {
-                Console.WriteLine("========== 没有符合条件的订单 ==========");
+                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
                 return;
             }
 
@@ -77,8 +77,13 @@ namespace program1
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
                 foreach (var C in B.MyOreder)
                     Console.WriteLine(
-                        $"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
-                Console.WriteLine($"++++++++总金额：{B.Sum()}");
+                        $" {C.DetailsNumber}.  " +
+                        $"商品编号：{C.good.Id}\n" +
+                        $"名称：{C.good.Name}\n" +
+                        $"单价：{C.good.Price}\n" +
+                        $"数量：{C.CommodityNumber}\n" +
+                        $"价格：{C.TotalPrice}");
+                Console.WriteLine($"总金额：{B.Sum()}");
                 Console.WriteLine(
                     $"\n*****{DateTime.Now.Year.ToString()}/{DateTime.Now.Month.ToString()}/{DateTime.Now.Day.ToString()}*****");
             }
@@ -97,7 +102,7 @@ namespace program1
             var A = orders.Where(a => a.OrderId == id).Select(a => a);
             if (A.Count() == 0)
             {
-                Console.WriteLine("========== 没有符合条件的订单 ==========");
+                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
                 return;
             }
             //输出所得订单
@@ -107,8 +112,13 @@ namespace program1
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
                 foreach (var C in B.MyOreder)
                     Console.WriteLine(
-                        $"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
-                Console.WriteLine($"++++++++总金额：{B.Sum()}");
+                        $" {C.DetailsNumber}.  " +
+                        $"商品编号：{C.good.Id}\n" +
+                        $"名称：{C.good.Name}\n" +
+                        $"单价：{C.good.Price}\n" +
+                        $"数量：{C.CommodityNumber}\n" +
+                        $"价格：{C.TotalPrice}");
+                Console.WriteLine($"总金额：{B.Sum()}");
                 Console.WriteLine(
                     $"\n*****{DateTime.Now.Year.ToString()}/{DateTime.Now.Month.ToString()}/{DateTime.Now.Day.ToString()}*****");
             }
@@ -133,7 +143,7 @@ namespace program1
             var A = orders.Where(a => a.Sum() < total).Select(a => a);
             if (A.Count() == 0)
             {
-                Console.WriteLine("========== 没有符合条件的订单 ==========");
+                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
                 return;
             }
 
@@ -143,8 +153,13 @@ namespace program1
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
                 foreach (var C in B.MyOreder)
                     Console.WriteLine(
-                        $"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
-                Console.WriteLine($"++++++++总金额：{B.Sum()}");
+                        $" {C.DetailsNumber}.  " +
+                        $"商品编号：{C.good.Id}\n" +
+                        $"名称：{C.good.Name}\n" +
+                        $"单价：{C.good.Price}\n" +
+                        $"数量：{C.CommodityNumber}\n" +
+                        $"价格：{C.TotalPrice}");
+                Console.WriteLine($"总金额：{B.Sum()}");
                 Console.WriteLine(
                     $"\n*****{DateTime.Now.Year.ToString()}//{DateTime.Now.Month.ToString()}//{DateTime.Now.Day.ToString()}*****");
             }
@@ -164,8 +179,13 @@ namespace program1
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
                 foreach (var C in B.MyOreder)
                     Console.WriteLine(
-                        $"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
-                Console.WriteLine($"++++++++总金额：{B.Sum()}");
+                        $" {C.DetailsNumber}.  " +
+                        $"商品编号：{C.good.Id}\n" +
+                        $"名称：{C.good.Name}\n" +
+                        $"单价：{C.good.Price}\n" +
+                        $"数量：{C.CommodityNumber}\n" +
+                        $"价格：{C.TotalPrice}");
+                Console.WriteLine($"总金额：{B.Sum()}");
                 Console.WriteLine(
                     $"\n*****{DateTime.Now.Year.ToString()}//{DateTime.Now.Month.ToString()}//{DateTime.Now.Day.ToString()}*****");
             }
