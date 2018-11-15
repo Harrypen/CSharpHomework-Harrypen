@@ -52,20 +52,20 @@ namespace program1
         //按商品的编号删除该明细
         public void DelectByName(string name)
         {
-            var A = MyOrder.Where(a => a.good.Id == name).Select(a => a);
+            var A = MyOrder.Where(a => a.Good.Id == name).Select(a => a);
             foreach (var B in A) MyOrder.Remove(B);
         }
 
         //按商品的名称查询该明细
         public void FindByName(string name)
         {
-            var A = MyOrder.Where(a => a.good.Id == name).Select(a => a);
+            var A = MyOrder.Where(a => a.Good.Id == name).Select(a => a);
             foreach (var B in A)
                 Console.WriteLine(
                     $" {B.DetailsNumber}.  \n" +
-                    $"商品编号：{B.good.Id}  \n" +
-                    $"名称：{B.good.Name}  \n" +
-                    $"单价：{B.good.Price}  \n" +
+                    $"商品编号：{B.Good.Id}  \n" +
+                    $"名称：{B.Good.Name}  \n" +
+                    $"单价：{B.Good.Price}  \n" +
                     $"数量：{B.CommodityNumber}  \n" +
                     $"价格：{B.TotalPrice}");
         }

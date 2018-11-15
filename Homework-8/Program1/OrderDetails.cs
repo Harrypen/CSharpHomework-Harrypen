@@ -5,8 +5,9 @@
         public OrderDetails(Goods goods, int number)
         {
             CommodityNumber = number;
-            good = goods;
-            TotalPrice = good.Price * CommodityNumber;
+            Good = goods;
+            goodName = goods.Name;
+            TotalPrice = Good.Price * CommodityNumber;
         }
 
         public OrderDetails()
@@ -14,7 +15,8 @@
 
         }
 
-        public Goods good { set; get; }
+        public Goods Good { set; get; }
+        public string goodName { set; get; }//商品名
         public int DetailsNumber { set; get; } //明细序号      
         public float TotalPrice { set; get; } //商品总价格
         public int CommodityNumber { set; get; } //商品数量(外部传入)            

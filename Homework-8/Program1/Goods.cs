@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
+using System.Security.Permissions;
 
 namespace program1
 {
-    public class Goods
+   public class Goods 
     {
         public Goods(string goods)
         {
@@ -33,7 +35,7 @@ namespace program1
         public Goods()
         {
         }
-
+        
         public string Id { get; }
 
         public float Price { get; }
@@ -42,7 +44,7 @@ namespace program1
 
         public override string ToString()
         {
-            return this.Name;
+            return Name.ToString();
         }
     }
 }

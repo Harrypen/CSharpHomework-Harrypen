@@ -75,9 +75,9 @@ namespace Program2
                 nav.MoveToRoot();
 
                 XslCompiledTransform xt = new XslCompiledTransform();
-                xt.Load(@"./Order.xslt");
+                xt.Load(@"../../../Order.xslt");
 
-                FileStream outFileStream = File.OpenWrite(@"./Order.html");
+                FileStream outFileStream = File.OpenWrite(@"../../../Order.html");
                 XmlTextWriter writer =
                     new XmlTextWriter(outFileStream, System.Text.Encoding.UTF8);
                 xt.Transform(nav, writer);

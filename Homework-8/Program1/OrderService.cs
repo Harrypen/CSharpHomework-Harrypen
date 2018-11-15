@@ -76,9 +76,9 @@ namespace program1
                 foreach (var C in B.MyOrder)
                     Console.WriteLine(
                         $" {C.DetailsNumber}.  " +
-                        $"商品编号：{C.good.Id}\n" +
-                        $"名称：{C.good.Name}\n" +
-                        $"单价：{C.good.Price}\n" +
+                        $"商品编号：{C.Good.Id}\n" +
+                        $"名称：{C.Good.Name}\n" +
+                        $"单价：{C.Good.Price}\n" +
                         $"数量：{C.CommodityNumber}\n" +
                         $"价格：{C.TotalPrice}");
                 Console.WriteLine($"总金额：{B.Sum()}");
@@ -111,9 +111,9 @@ namespace program1
                 foreach (var C in B.MyOrder)
                     Console.WriteLine(
                         $" {C.DetailsNumber}.  " +
-                        $"商品编号：{C.good.Id}\n" +
-                        $"名称：{C.good.Name}\n" +
-                        $"单价：{C.good.Price}\n" +
+                        $"商品编号：{C.Good.Id}\n" +
+                        $"名称：{C.Good.Name}\n" +
+                        $"单价：{C.Good.Price}\n" +
                         $"数量：{C.CommodityNumber}\n" +
                         $"价格：{C.TotalPrice}");
                 Console.WriteLine($"总金额：{B.Sum()}");
@@ -152,9 +152,9 @@ namespace program1
                 foreach (var C in B.MyOrder)
                     Console.WriteLine(
                         $" {C.DetailsNumber}.  " +
-                        $"商品编号：{C.good.Id}\n" +
-                        $"名称：{C.good.Name}\n" +
-                        $"单价：{C.good.Price}\n" +
+                        $"商品编号：{C.Good.Id}\n" +
+                        $"名称：{C.Good.Name}\n" +
+                        $"单价：{C.Good.Price}\n" +
                         $"数量：{C.CommodityNumber}\n" +
                         $"价格：{C.TotalPrice}");
                 Console.WriteLine($"总金额：{B.Sum()}");
@@ -178,9 +178,9 @@ namespace program1
                 foreach (var C in B.MyOrder)
                     Console.WriteLine(
                         $" {C.DetailsNumber}.  " +
-                        $"商品编号：{C.good.Id}\n" +
-                        $"名称：{C.good.Name}\n" +
-                        $"单价：{C.good.Price}\n" +
+                        $"商品编号：{C.Good.Id}\n" +
+                        $"名称：{C.Good.Name}\n" +
+                        $"单价：{C.Good.Price}\n" +
                         $"数量：{C.CommodityNumber}\n" +
                         $"价格：{C.TotalPrice}");
                 Console.WriteLine($"总金额：{B.Sum()}");
