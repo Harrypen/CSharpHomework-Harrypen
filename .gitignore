@@ -1,4 +1,7 @@
 # CSharp
 [Bb]in/
+![Bb]in/Debug/*.xml
+![Bb]in/Debug/*.xslt
 [Oo]bj/
 .vs/
+![Bb]in/Debug/*.xml
