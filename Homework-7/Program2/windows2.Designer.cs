@@ -45,7 +45,7 @@
             this.groupBox1.Size = new System.Drawing.Size(585, 392);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "删除订单";
             // 
             // textBox1
             // 
@@ -74,9 +74,7 @@
             this.comboBox1.ItemHeight = 18;
             this.comboBox1.Items.AddRange(new object[] {
             "订单号",
-            "客户名",
-            "最大金额",
-            "最小金额"});
+            "客户名"});
             this.comboBox1.Location = new System.Drawing.Point(0, 183);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(110, 26);

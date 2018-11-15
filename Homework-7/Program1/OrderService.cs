@@ -19,41 +19,37 @@ namespace program1
         //按订单号删除订单
         public void DeleteById(int id)
         {
-            if (orders.Count == 0)
+            if (this.orders.Count == 0)
             {
                 Console.WriteLine("++++++ 没有订单 ++++++");
                 return;
             }
-
             var A = orders.Where(a => a.OrderId == id).Select(a => a);
             //判断是否有相关订单
             if (A.Count() == 0)
             {
-                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
+                Console.WriteLine("========== 没有符合条件的订单 ==========");
                 return;
             }
-
-            foreach (var B in A) orders.Remove(B);
+            this.orders.RemoveAll(a => a.OrderId == id);
         }
 
         //按客户删除订单
         public void DeleteByCliend(string client)
         {
-            if (orders.Count == 0)
+            if (this.orders.Count == 0)
             {
                 Console.WriteLine("++++++ 没有订单 ++++++");
                 return;
             }
-
             var A = orders.Where(a => a.Client.Equals(client)).Select(a => a);
             //判断是否有相关订单
             if (A.Count() == 0)
             {
-                Console.WriteLine("\n========== 没有符合条件的订单 ==========\n");
+                Console.WriteLine("========== 没有符合条件的订单 ==========");
                 return;
             }
-
-            foreach (var B in A) orders.Remove(B);
+            this.orders.RemoveAll(a => a.Client.Equals(client));
         }
 
         //按客户查询订单

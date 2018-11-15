@@ -39,5 +39,10 @@ namespace program1
         public float Price { get; }
 
         public string Name { get; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

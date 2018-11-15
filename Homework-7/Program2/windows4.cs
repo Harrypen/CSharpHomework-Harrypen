@@ -13,7 +13,7 @@ namespace Program2
 {
     public partial class windows4 : UserControl
     {
-        public static int OrderID;
+       
         public windows4()
         {
             InitializeComponent();
@@ -21,22 +21,31 @@ namespace Program2
 
         private void windows4_Load(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 3;
             if (Form1.OrderService.orders.Count != 0)
             {
                 orderBindingSource.DataSource = new BindingList<Order>(Form1.OrderService.orders);
             }
         }
 
-        private void 订单明细ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void windows4_Enter(object sender, EventArgs e)
         {
-            OrderID = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-            orderDetailsBindingSource.DataSource = new BindingList<OrderDetails>(Form1.OrderService.orders[windows4.OrderID].MyOrder);
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (Form1.OrderService.orders.Count != 0)
+            {
+                orderBindingSource.DataSource = new BindingList<Order>(Form1.OrderService.orders);
+            }
         }
+
+        //OrderID = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1.GetOrders = Form1.OrderService.orders;
+            if (Form1.OrderService.orders.Count != 0)
+            {
+                orderBindingSource.DataSource = new BindingList<Order>(Form1.OrderService.orders);
+            }
+
+            //Form1.GetOrders = Form1.OrderService.orders;
             List<Order> orders = new List<Order>();
             if (Form1.GetOrders.Count() == 0)
             {
@@ -55,8 +64,6 @@ namespace Program2
                 orderBindingSource.DataSource = dataSource;
                 foreach (Order a in dataSource)
                     orders.Add(a);
-                orderDetailsBindingSource.DataSource = new BindingList<OrderDetails>(orders[0].MyOrder);
-
             }
             else if (comboBox1.Text.Equals("订单号"))
             {
@@ -69,8 +76,6 @@ namespace Program2
                 orderBindingSource.DataSource = dataSource;
                 foreach (Order a in dataSource)
                     orders.Add(a);
-                orderDetailsBindingSource.DataSource = new BindingList<OrderDetails>(orders[0].MyOrder);
-
             }
             else if (comboBox1.Text.Equals("最大金额"))
             {
@@ -83,7 +88,6 @@ namespace Program2
                 orderBindingSource.DataSource = dataSource;
                 foreach (Order a in dataSource)
                     orders.Add(a);
-                orderDetailsBindingSource.DataSource = new BindingList<OrderDetails>(orders[0].MyOrder);
             }
             else if (comboBox1.Text.Equals("最小金额"))
             {
@@ -96,13 +100,41 @@ namespace Program2
                 orderBindingSource.DataSource = dataSource;
                 foreach (Order a in dataSource)
                     orders.Add(a);
-                orderDetailsBindingSource.DataSource = new BindingList<OrderDetails>(orders[0].MyOrder);
+            }
+            else if (comboBox1.Text.Equals("全部订单"))
+            {
+                var dataSource = Form1.GetOrders;
+                if (dataSource.Count() == 0)
+                {
+                    MessageBox.Show("没有订单！");
+                    return;
+                }
+                orderBindingSource.DataSource = dataSource;
+                foreach (Order a in dataSource)
+                    orders.Add(a);
+            }
+            else if (comboBox1.Text.Equals("电话号码"))
+            {
+                var dataSource = Form1.GetOrders.Where(a => a.Tel == (Convert.ToString(textBox1.Text)));
+                if (dataSource.Count() == 0)
+                {
+                    MessageBox.Show("没有订单！");
+                    return;
+                }
+                foreach (Order a in dataSource)
+                    orders.Add(a);
             }
             else
             {
                 MessageBox.Show("没有订单！");
             }
+            
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
 
         }
+        
     }
 }

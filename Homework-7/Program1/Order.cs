@@ -30,6 +30,19 @@ namespace program1
             return sum;
         }
 
+        //客户电话
+        private string str_tel;
+        public string Tel
+        {
+            set
+            {
+               if (System.Text.RegularExpressions.Regex.IsMatch(value, @"^[1]+[3,4,5,8]+\d{9}"))
+                    str_tel = value;
+            }
+            get { return str_tel; }
+            
+        }
+
         //添加明细
         public void AddDetails(OrderDetails od) //（订单明细，编号，名称，数量，价格，客户）
         {

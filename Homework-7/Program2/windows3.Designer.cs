@@ -29,44 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailsNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commodityNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.detailsNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commodityNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.goodDataGridViewTextBoxColumn,
-            this.detailsNumberDataGridViewTextBoxColumn,
-            this.totalPriceDataGridViewTextBoxColumn,
-            this.commodityNumberDataGridViewTextBoxColumn});
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.DataSource = this.orderDetailsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(588, 337);
-            this.dataGridView1.TabIndex = 8;
             // 
             // textBox1
             // 
@@ -85,6 +63,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -93,9 +72,12 @@
             this.comboBox1.IntegralHeight = false;
             this.comboBox1.ItemHeight = 18;
             this.comboBox1.Items.AddRange(new object[] {
+            "电话号码",
             "订单号",
             "客户名",
-            "最大金额"});
+            "全部明细",
+            "最大金额",
+            "最小金额"});
             this.comboBox1.Location = new System.Drawing.Point(0, 23);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(110, 26);
@@ -104,6 +86,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -114,51 +97,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "订单明细(可修改订单)";
             // 
-            // contextMenuStrip1
+            // dataGridView1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.订单ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 32);
-            // 
-            // 订单ToolStripMenuItem
-            // 
-            this.订单ToolStripMenuItem.Name = "订单ToolStripMenuItem";
-            this.订单ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
-            this.订单ToolStripMenuItem.Text = "订单列表";
-            // 
-            // goodDataGridViewTextBoxColumn
-            // 
-            this.goodDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.goodDataGridViewTextBoxColumn.DataPropertyName = "good";
-            this.goodDataGridViewTextBoxColumn.HeaderText = "good";
-            this.goodDataGridViewTextBoxColumn.Name = "goodDataGridViewTextBoxColumn";
-            this.goodDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // detailsNumberDataGridViewTextBoxColumn
-            // 
-            this.detailsNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.detailsNumberDataGridViewTextBoxColumn.DataPropertyName = "DetailsNumber";
-            this.detailsNumberDataGridViewTextBoxColumn.HeaderText = "DetailsNumber";
-            this.detailsNumberDataGridViewTextBoxColumn.Name = "detailsNumberDataGridViewTextBoxColumn";
-            this.detailsNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // commodityNumberDataGridViewTextBoxColumn
-            // 
-            this.commodityNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.commodityNumberDataGridViewTextBoxColumn.DataPropertyName = "CommodityNumber";
-            this.commodityNumberDataGridViewTextBoxColumn.HeaderText = "CommodityNumber";
-            this.commodityNumberDataGridViewTextBoxColumn.Name = "commodityNumberDataGridViewTextBoxColumn";
-            this.commodityNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.detailsNumberDataGridViewTextBoxColumn,
+            this.goodDataGridViewTextBoxColumn,
+            this.totalPriceDataGridViewTextBoxColumn,
+            this.commodityNumberDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.orderDetailsBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(-3, 55);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.Size = new System.Drawing.Size(588, 337);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // orderDetailsBindingSource
             // 
@@ -168,19 +124,48 @@
             // 
             this.orderBindingSource.DataSource = typeof(program1.Order);
             // 
+            // detailsNumberDataGridViewTextBoxColumn
+            // 
+            this.detailsNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.detailsNumberDataGridViewTextBoxColumn.DataPropertyName = "DetailsNumber";
+            this.detailsNumberDataGridViewTextBoxColumn.HeaderText = "DetailsNumber";
+            this.detailsNumberDataGridViewTextBoxColumn.Name = "detailsNumberDataGridViewTextBoxColumn";
+            // 
+            // goodDataGridViewTextBoxColumn
+            // 
+            this.goodDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.goodDataGridViewTextBoxColumn.DataPropertyName = "good";
+            this.goodDataGridViewTextBoxColumn.HeaderText = "good";
+            this.goodDataGridViewTextBoxColumn.Name = "goodDataGridViewTextBoxColumn";
+            this.goodDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.Width = 134;
+            // 
+            // commodityNumberDataGridViewTextBoxColumn
+            // 
+            this.commodityNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.commodityNumberDataGridViewTextBoxColumn.DataPropertyName = "CommodityNumber";
+            this.commodityNumberDataGridViewTextBoxColumn.HeaderText = "CommodityNumber";
+            this.commodityNumberDataGridViewTextBoxColumn.Name = "commodityNumberDataGridViewTextBoxColumn";
+            this.commodityNumberDataGridViewTextBoxColumn.Width = 179;
+            // 
             // windows3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "windows3";
             this.Size = new System.Drawing.Size(588, 395);
             this.Load += new System.EventHandler(this.windows3_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -188,19 +173,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource orderBindingSource;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource orderDetailsBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn detailsNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn commodityNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource orderDetailsBindingSource;
-        private System.Windows.Forms.ToolStripMenuItem 订单ToolStripMenuItem;
     }
 }

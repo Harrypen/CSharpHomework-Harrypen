@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.XPath;
+using System.Xml.Xsl;
 using program1;
 
 namespace Program2
@@ -20,23 +24,16 @@ namespace Program2
         }
 
         //窗口切换
-        public windows1 Windows1;//定义窗口变量
-        public windows2 Windows2;
-        public windows3 Windows3;
-        public windows4 Windows4;
+        public static windows1 Windows1 = new windows1();//定义窗口变量
+        public static windows2 Windows2 = new windows2();
+        public static windows3 Windows3 = new windows3();
+        public static windows4 Windows4 = new windows4();
 
         public static List<Order> GetOrders = new List<Order>();
         public static OrderService OrderService = new OrderService();
         public static List<OrderDetails> Details = new List<OrderDetails>();
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Windows1 = new windows1();
-            Windows2 = new windows2();
-            Windows3 = new windows3();
-            Windows4 = new windows4();
-            //OrderService.Import();
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -64,6 +61,36 @@ namespace Program2
             Windows4.Show();
             groupBox2.Controls.Clear();
             groupBox2.Controls.Add(Windows4);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OrderService.Export();
+                XmlDocument doc = new XmlDocument();
+                doc.Load(@"Order.xml");
+
+                XPathNavigator nav = doc.CreateNavigator();
+                nav.MoveToRoot();
+
+                XslCompiledTransform xt = new XslCompiledTransform();
+                xt.Load(@"./Order.xslt");
+
+                FileStream outFileStream = File.OpenWrite(@"./Order.html");
+                XmlTextWriter writer =
+                    new XmlTextWriter(outFileStream, System.Text.Encoding.UTF8);
+                xt.Transform(nav, writer);
+                MessageBox.Show("成功！");
+            }
+            catch (XmlException ea)
+            {
+                Console.WriteLine("XML Exception:" + ea.ToString());
+            }
+            catch (XsltException ea)
+            {
+                Console.WriteLine("XSLT Exception:" + ea.ToString());
+            }
         }
     }
 }
