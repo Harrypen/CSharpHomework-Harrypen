@@ -2,7 +2,7 @@
 [Bb]in/
 !/Debug
 /Debug/*
-![Bb]in/Debug/*.xml
-![Bb]in/Debug/*.xslt
+!bin/Debug/Order.xml
+!bin/Debug/Order.xslt
 [Oo]bj/
 .vs/
